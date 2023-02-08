@@ -12,6 +12,15 @@ pub struct Elements {
     pub id: Id
 }
 
+pub fn get_help_target(id: Id) -> Id {
+    match id {
+        Id::Tree => Id::Fire,
+        Id::Fire => Id::Soil,
+        Id::Soil => Id::Metal,
+        Id::Metal => Id::Water,
+        Id::Water => Id::Tree
+    }
+}
 pub fn get_attack_target(id: Id) -> Id {
     match id {
         Id::Tree => Id::Soil,
@@ -21,3 +30,4 @@ pub fn get_attack_target(id: Id) -> Id {
         Id::Water => Id::Fire
     }
 }
+
