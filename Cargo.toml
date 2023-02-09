@@ -1,7 +1,7 @@
 [workspace]
 members = [
-    "eight_characters_lib",
-    "eight_characters_app"
+    "sajoopalja_lib",
+    "sajoopalja_app"
 ]
 
 [profile.dev]

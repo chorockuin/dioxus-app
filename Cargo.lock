@@ -658,19 +658,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0bd4b30a6560bbd9b4620f4de34c3f14f60848e58a9b7216801afcb4c7b31c3c"
 
 [[package]]
-name = "eight_characters_app"
-version = "0.1.0"
-dependencies = [
- "dioxus",
- "dioxus-desktop",
- "eight_characters_lib",
-]
-
-[[package]]
-name = "eight_characters_lib"
-version = "0.1.0"
-
-[[package]]
 name = "enumset"
 version = "1.0.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2000,6 +1987,19 @@ name = "ryu"
 version = "1.0.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7b4b9743ed687d4b4bcedf9ff5eaa7398495ae14e61cba0a295704edbc7decde"
+
+[[package]]
+name = "sajoopalja_app"
+version = "0.1.0"
+dependencies = [
+ "dioxus",
+ "dioxus-desktop",
+ "sajoopalja_lib",
+]
+
+[[package]]
+name = "sajoopalja_lib"
+version = "0.1.0"
 
 [[package]]
 name = "same-file"

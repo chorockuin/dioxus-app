@@ -1,7 +1,7 @@
 #![allow(non_snake_case)]
 // import the prelude to get access to the `rsx!` macro and the `Scope` and `Element` types
 use dioxus::prelude::*;
-extern crate eight_characters_lib;
+extern crate sajoopalja_lib;
 
 fn main() {
     // launch the dioxus app in a webview
