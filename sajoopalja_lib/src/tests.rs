@@ -1,7 +1,7 @@
 use crate::haeng;
 
 #[test]
-fn saeng() {    
+fn saeng() {
     assert_eq!(haeng::get_saeng(haeng::Name::Mok), haeng::Name::Hwa);
     assert_eq!(haeng::get_saeng(haeng::Name::Hwa), haeng::Name::To);
     assert_eq!(haeng::get_saeng(haeng::Name::To), haeng::Name::Kum);

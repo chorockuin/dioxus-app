@@ -4,6 +4,8 @@ use dioxus::prelude::*;
 extern crate sajoopalja_lib;
 
 fn main() {
+    let o_haeng = sajoopalja_lib::haeng::create_o_haeng();
+    
     // launch the dioxus app in a webview
     dioxus_desktop::launch(App);
 }
