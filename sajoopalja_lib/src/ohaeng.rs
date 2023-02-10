@@ -14,6 +14,7 @@ pub enum Name {
 #[derive(Debug)]
 pub struct Haeng {
     name: Name,
+    character: String,
     next: Option<Rc<RefCell<Haeng>>>
 }
 
@@ -24,11 +25,11 @@ pub fn create_ohaeng() -> HashMap<Name, Rc<RefCell<Haeng>>> {
     Rc instance가 assign 된 불변 변수를 다룰 때에는 그냥 RefCell instance 처럼 다룰 수 있음(soo = *soo)
     Haeng의 next 값을 변경해야 하기 때문에 RefCell을 사용한 것이고, RefCell의 borrow_mut()을 사용해서 변경한다
     */
-    let soo = Rc::new(RefCell::new(Haeng{name: Name::Soo, next: None}));
-    let kum = Rc::new(RefCell::new(Haeng{name: Name::Gum, next: Some(Rc::clone(&soo))}));
-    let to = Rc::new(RefCell::new(Haeng{name: Name::To, next: Some(Rc::clone(&kum))}));
-    let hwa = Rc::new(RefCell::new(Haeng{name: Name::Hwa, next: Some(Rc::clone(&to))}));
-    let mok = Rc::new(RefCell::new(Haeng{name: Name::Mok, next: Some(Rc::clone(&hwa))}));
+    let soo = Rc::new(RefCell::new(Haeng{name: Name::Soo, character: "水".to_string(), next: None}));
+    let kum = Rc::new(RefCell::new(Haeng{name: Name::Gum, character: "金".to_string(), next: Some(Rc::clone(&soo))}));
+    let to = Rc::new(RefCell::new(Haeng{name: Name::To, character: "土".to_string(), next: Some(Rc::clone(&kum))}));
+    let hwa = Rc::new(RefCell::new(Haeng{name: Name::Hwa, character: "火".to_string(), next: Some(Rc::clone(&to))}));
+    let mok = Rc::new(RefCell::new(Haeng{name: Name::Mok, character: "木".to_string(), next: Some(Rc::clone(&hwa))}));
     soo.borrow_mut().next = Some(Rc::clone(&mok));
 
     let mut ohaeng = HashMap::new();

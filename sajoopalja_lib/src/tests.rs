@@ -1,3 +1,5 @@
+use crate::umyang;
+use crate::wol;
 use crate::ohaeng;
 use crate::jiji;
 
@@ -22,7 +24,7 @@ fn kuk() {
 }
 
 #[test]
-fn cheongan_order() {
+fn jiji_order() {
     let ohaeng = ohaeng::create_ohaeng();
     let jiji = jiji::create_jiji(&ohaeng);
     assert_eq!(jiji::get_next_jijija(&jiji, jiji::Name::Yin), jiji::Name::Myo);
@@ -40,7 +42,25 @@ fn cheongan_order() {
 }
 
 #[test]
-fn cheongan_haeng() {
+fn jiji_umyang() {
+    let ohaeng = ohaeng::create_ohaeng();
+    let jiji = jiji::create_jiji(&ohaeng);
+    assert_eq!(jiji::get_umyang(&jiji, jiji::Name::Yin), umyang::Name::Yang);
+    assert_eq!(jiji::get_umyang(&jiji, jiji::Name::Myo), umyang::Name::Um);
+    assert_eq!(jiji::get_umyang(&jiji, jiji::Name::Jin), umyang::Name::Yang);
+    assert_eq!(jiji::get_umyang(&jiji, jiji::Name::Sa), umyang::Name::Um);
+    assert_eq!(jiji::get_umyang(&jiji, jiji::Name::O), umyang::Name::Yang);
+    assert_eq!(jiji::get_umyang(&jiji, jiji::Name::Mi), umyang::Name::Um);
+    assert_eq!(jiji::get_umyang(&jiji, jiji::Name::Sin), umyang::Name::Yang);
+    assert_eq!(jiji::get_umyang(&jiji, jiji::Name::Yoo), umyang::Name::Um);
+    assert_eq!(jiji::get_umyang(&jiji, jiji::Name::Sool), umyang::Name::Yang);
+    assert_eq!(jiji::get_umyang(&jiji, jiji::Name::Hae), umyang::Name::Um);
+    assert_eq!(jiji::get_umyang(&jiji, jiji::Name::Ja), umyang::Name::Yang);
+    assert_eq!(jiji::get_umyang(&jiji, jiji::Name::Chook), umyang::Name::Um);
+}
+
+#[test]
+fn jiji_haeng() {
     let ohaeng = ohaeng::create_ohaeng();
     let jiji = jiji::create_jiji(&ohaeng);
     assert_eq!(jiji::get_haeng(&jiji, jiji::Name::Yin), ohaeng::Name::Mok);
@@ -55,4 +75,22 @@ fn cheongan_haeng() {
     assert_eq!(jiji::get_haeng(&jiji, jiji::Name::Hae), ohaeng::Name::Soo);
     assert_eq!(jiji::get_haeng(&jiji, jiji::Name::Ja), ohaeng::Name::Soo);
     assert_eq!(jiji::get_haeng(&jiji, jiji::Name::Chook), ohaeng::Name::To);
+}
+
+#[test]
+fn jiji_wol() {
+    let ohaeng = ohaeng::create_ohaeng();
+    let jiji = jiji::create_jiji(&ohaeng);
+    assert_eq!(jiji::get_wol(&jiji, jiji::Name::Yin), wol::Name::Yil);
+    assert_eq!(jiji::get_wol(&jiji, jiji::Name::Myo), wol::Name::Yi);
+    assert_eq!(jiji::get_wol(&jiji, jiji::Name::Jin), wol::Name::Sam);
+    assert_eq!(jiji::get_wol(&jiji, jiji::Name::Sa), wol::Name::Sa);
+    assert_eq!(jiji::get_wol(&jiji, jiji::Name::O), wol::Name::O);
+    assert_eq!(jiji::get_wol(&jiji, jiji::Name::Mi), wol::Name::Yook);
+    assert_eq!(jiji::get_wol(&jiji, jiji::Name::Sin), wol::Name::Chil);
+    assert_eq!(jiji::get_wol(&jiji, jiji::Name::Yoo), wol::Name::Pal);
+    assert_eq!(jiji::get_wol(&jiji, jiji::Name::Sool), wol::Name::Goo);
+    assert_eq!(jiji::get_wol(&jiji, jiji::Name::Hae), wol::Name::Sib);
+    assert_eq!(jiji::get_wol(&jiji, jiji::Name::Ja), wol::Name::Sibyil);
+    assert_eq!(jiji::get_wol(&jiji, jiji::Name::Chook), wol::Name::Sibyi);
 }
