@@ -7,7 +7,7 @@ pub enum Name {
     Mok,
     Hwa,
     To,
-    Kum,
+    Gum,
     Soo
 }
 
@@ -25,7 +25,7 @@ pub fn create_o_haeng() -> HashMap<Name, Rc<RefCell<Haeng>>> {
     Haeng의 next 값을 변경해야 하기 때문에 RefCell을 사용한 것이고, RefCell의 borrow_mut()을 사용해서 변경한다
     */
     let soo = Rc::new(RefCell::new(Haeng{name: Name::Soo, next: None}));
-    let kum = Rc::new(RefCell::new(Haeng{name: Name::Kum, next: Some(Rc::clone(&soo))}));
+    let kum = Rc::new(RefCell::new(Haeng{name: Name::Gum, next: Some(Rc::clone(&soo))}));
     let to = Rc::new(RefCell::new(Haeng{name: Name::To, next: Some(Rc::clone(&kum))}));
     let hwa = Rc::new(RefCell::new(Haeng{name: Name::Hwa, next: Some(Rc::clone(&to))}));
     let mok = Rc::new(RefCell::new(Haeng{name: Name::Mok, next: Some(Rc::clone(&hwa))}));
@@ -35,7 +35,7 @@ pub fn create_o_haeng() -> HashMap<Name, Rc<RefCell<Haeng>>> {
     o_haeng.insert(Name::Mok, mok);
     o_haeng.insert(Name::Hwa, hwa);
     o_haeng.insert(Name::To, to);
-    o_haeng.insert(Name::Kum, kum);
+    o_haeng.insert(Name::Gum, kum);
     o_haeng.insert(Name::Soo, soo);
 
     o_haeng
