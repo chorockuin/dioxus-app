@@ -1,4 +1,5 @@
-pub mod tests;
+pub mod umyang;
 pub mod ohaeng;
 pub mod wol;
-pub mod cheongan;
+pub mod jiji;
+pub mod tests;
