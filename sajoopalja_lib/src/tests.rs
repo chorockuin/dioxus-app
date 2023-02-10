@@ -4,7 +4,7 @@ use crate::ohaeng;
 use crate::jiji;
 
 #[test]
-fn saeng() {
+fn ohaeng_saeng() {
     let ohaeng = ohaeng::create_ohaeng();
     assert_eq!(ohaeng::get_saeng(&ohaeng, ohaeng::Name::Mok), ohaeng::Name::Hwa);
     assert_eq!(ohaeng::get_saeng(&ohaeng, ohaeng::Name::Hwa), ohaeng::Name::To);
@@ -14,7 +14,7 @@ fn saeng() {
 }
 
 #[test]
-fn kuk() {
+fn ohaeng_kuk() {
     let ohaeng = ohaeng::create_ohaeng();
     assert_eq!(ohaeng::get_kuk(&ohaeng, ohaeng::Name::Mok), ohaeng::Name::To);
     assert_eq!(ohaeng::get_kuk(&ohaeng, ohaeng::Name::Hwa), ohaeng::Name::Gum);
