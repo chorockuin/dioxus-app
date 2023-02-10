@@ -14,7 +14,7 @@ pub enum Name {
 #[derive(Debug)]
 pub struct Haeng {
     name: Name,
-    character: String,
+    pub character: String,
     next: Option<Rc<RefCell<Haeng>>>
 }
 

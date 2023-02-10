@@ -24,7 +24,7 @@ pub enum Name {
 #[derive(Debug)]
 pub struct Jijija {
     name: Name,
-    character: String,
+    pub character: String,
     umyang_name: umyang::Name,
     haeng_name: ohaeng::Name,
     wol_name: wol::Name,
