@@ -17,7 +17,7 @@ pub struct Haeng {
     next: Option<Rc<RefCell<Haeng>>>
 }
 
-pub fn create_o_haeng() -> HashMap<Name, Rc<RefCell<Haeng>>> {
+pub fn create_ohaeng() -> HashMap<Name, Rc<RefCell<Haeng>>> {
     /*
     Haeng instance를 RefCell로 하나 생성하고, RefCell을 참조하는 Rc instance도 하나 생성한 후 불변 변수에 assign
     즉, Rc instance는 불변이고 따라서 Rc가 가리키는 대상인 RefCell도 불변
@@ -31,24 +31,24 @@ pub fn create_o_haeng() -> HashMap<Name, Rc<RefCell<Haeng>>> {
     let mok = Rc::new(RefCell::new(Haeng{name: Name::Mok, next: Some(Rc::clone(&hwa))}));
     soo.borrow_mut().next = Some(Rc::clone(&mok));
 
-    let mut o_haeng = HashMap::new();
-    o_haeng.insert(Name::Mok, mok);
-    o_haeng.insert(Name::Hwa, hwa);
-    o_haeng.insert(Name::To, to);
-    o_haeng.insert(Name::Gum, kum);
-    o_haeng.insert(Name::Soo, soo);
+    let mut ohaeng = HashMap::new();
+    ohaeng.insert(Name::Mok, mok);
+    ohaeng.insert(Name::Hwa, hwa);
+    ohaeng.insert(Name::To, to);
+    ohaeng.insert(Name::Gum, kum);
+    ohaeng.insert(Name::Soo, soo);
 
-    o_haeng
+    ohaeng
 }
 
-pub fn get_saeng(o_haeng: &HashMap<Name, Rc<RefCell<Haeng>>>, name: Name) -> Name {
-    let haeng = &o_haeng.get(&name).unwrap().borrow();
+pub fn get_saeng(ohaeng: &HashMap<Name, Rc<RefCell<Haeng>>>, haeng_name: Name) -> Name {
+    let haeng = &ohaeng.get(&haeng_name).unwrap().borrow();
     let saeng_haeng = haeng.next.as_ref().unwrap().borrow();
     saeng_haeng.name
 }
 
-pub fn get_kuk(o_haeng: &HashMap<Name, Rc<RefCell<Haeng>>>, name: Name) -> Name {
-    let haeng = &o_haeng.get(&name).unwrap().borrow();
+pub fn get_kuk(ohaeng: &HashMap<Name, Rc<RefCell<Haeng>>>, haeng_name: Name) -> Name {
+    let haeng = &ohaeng.get(&haeng_name).unwrap().borrow();
     let saeng_haeng = haeng.next.as_ref().unwrap().borrow();
     let kuk_haeng = saeng_haeng.next.as_ref().unwrap().borrow();
     kuk_haeng.name
