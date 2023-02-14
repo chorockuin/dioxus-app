@@ -14,8 +14,28 @@ fn App(cx: Scope) -> Element {
     let jiji = sajoopalja_lib::jiji::create_jiji(&ohaeng);
     cx.render(rsx! {
         div {
-            ohaeng.iter().map(|(k, v)| rsx!(li {"{v.as_ref().borrow().character}"}))
-            jiji.iter().map(|(k, v)| rsx!(li {"{v.as_ref().borrow().character}"}))
+            style {
+                include_str!("./style.css")
+            }
+            header {
+            }
+            main {
+                div {
+                    ohaeng.iter().map(|(k, v)| {
+                        rsx!(div { 
+                            class: "haeng",
+                            background_color: "{v.as_ref().borrow().color}",
+                            "{v.as_ref().borrow().character}"})
+                    })
+                }
+                div {
+                    jiji.iter().map(|(k, v)| {
+                        rsx!(div {
+                            class: "ja",
+                            "{v.as_ref().borrow().character}"})
+                    })
+                }
+            }
         }
     })
 }
