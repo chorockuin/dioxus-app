@@ -26,7 +26,7 @@ pub struct Jijija {
     pub character: String,
     umyang_name: umyang::Name,
     pub haeng_name: ohaeng::Name,
-    wol: u8,
+    pub wol: u8,
     next: Option<Rc<RefCell<Jijija>>>
 }
 

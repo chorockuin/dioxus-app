@@ -23,20 +23,35 @@ fn App(cx: Scope) -> Element {
                 div {
                     ohaeng.iter().map(|(k, v)| {
                         let haeng = v.as_ref().borrow();
-                        rsx!(div { 
-                            class: "haeng",
-                            background_color: "{haeng.color}",
-                            "{haeng.character}"})
+                        rsx!(div {
+                            class: "haeng_box",
+                            div {
+                                class: "haeng",
+                                background_color: "{haeng.color}",
+                                "{haeng.character}"
+                            }
+                        })
                     })
+                }
+                div {
+                    clear: "left"
                 }
                 div {
                     jiji.iter().map(|(k, v)| {
                         let jijija = v.as_ref().borrow();
                         let haeng = sajoopalja_lib::ohaeng::get_haeng(&ohaeng, jijija.haeng_name);
                         rsx!(div {
-                            background_color: "{haeng.color}",
-                            class: "ja",
-                            "{jijija.character}"})
+                            class: "ja_box",
+                            div {
+                                class: "wol",
+                                "{jijija.wol}",
+                            }
+                            div {
+                                class: "ja",
+                                background_color: "{haeng.color}",
+                                "{jijija.character}"
+                            }
+                        })
                     })
                 }
             }
