@@ -1,5 +1,4 @@
 use crate::umyang;
-use crate::wol;
 use crate::ohaeng;
 use crate::jiji;
 
@@ -81,16 +80,16 @@ fn jiji_haeng_name() {
 fn jiji_wol() {
     let ohaeng = ohaeng::create_ohaeng();
     let jiji = jiji::create_jiji(&ohaeng);
-    assert_eq!(jiji::get_wol(&jiji, jiji::Name::Yin), wol::Name::Yil);
-    assert_eq!(jiji::get_wol(&jiji, jiji::Name::Myo), wol::Name::Yi);
-    assert_eq!(jiji::get_wol(&jiji, jiji::Name::Jin), wol::Name::Sam);
-    assert_eq!(jiji::get_wol(&jiji, jiji::Name::Sa), wol::Name::Sa);
-    assert_eq!(jiji::get_wol(&jiji, jiji::Name::O), wol::Name::O);
-    assert_eq!(jiji::get_wol(&jiji, jiji::Name::Mi), wol::Name::Yook);
-    assert_eq!(jiji::get_wol(&jiji, jiji::Name::Sin), wol::Name::Chil);
-    assert_eq!(jiji::get_wol(&jiji, jiji::Name::Yoo), wol::Name::Pal);
-    assert_eq!(jiji::get_wol(&jiji, jiji::Name::Sool), wol::Name::Goo);
-    assert_eq!(jiji::get_wol(&jiji, jiji::Name::Hae), wol::Name::Sib);
-    assert_eq!(jiji::get_wol(&jiji, jiji::Name::Ja), wol::Name::Sibyil);
-    assert_eq!(jiji::get_wol(&jiji, jiji::Name::Chook), wol::Name::Sibyi);
+    assert_eq!(jiji::get_wol(&jiji, jiji::Name::Yin), 1);
+    assert_eq!(jiji::get_wol(&jiji, jiji::Name::Myo), 2);
+    assert_eq!(jiji::get_wol(&jiji, jiji::Name::Jin), 3);
+    assert_eq!(jiji::get_wol(&jiji, jiji::Name::Sa), 4);
+    assert_eq!(jiji::get_wol(&jiji, jiji::Name::O), 5);
+    assert_eq!(jiji::get_wol(&jiji, jiji::Name::Mi), 6);
+    assert_eq!(jiji::get_wol(&jiji, jiji::Name::Sin), 7);
+    assert_eq!(jiji::get_wol(&jiji, jiji::Name::Yoo), 8);
+    assert_eq!(jiji::get_wol(&jiji, jiji::Name::Sool), 9);
+    assert_eq!(jiji::get_wol(&jiji, jiji::Name::Hae), 10);
+    assert_eq!(jiji::get_wol(&jiji, jiji::Name::Ja), 11);
+    assert_eq!(jiji::get_wol(&jiji, jiji::Name::Chook), 12);
 }
