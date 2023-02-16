@@ -21,8 +21,7 @@ fn App(cx: Scope) -> Element {
             }
             main {
                 div {
-                    ohaeng.iter().map(|(k, v)| {
-                        let haeng = v.as_ref().borrow();
+                    ohaeng.iter().map(|haeng| {
                         rsx!(div {
                             class: "haeng_box",
                             div {
@@ -37,9 +36,8 @@ fn App(cx: Scope) -> Element {
                     clear: "left"
                 }
                 div {
-                    jiji.iter().map(|(k, v)| {
-                        let jijija = v.as_ref().borrow();
-                        let haeng = sajoopalja_lib::ohaeng::get_haeng(&ohaeng, jijija.haeng_name);
+                    jiji.iter().map(|jijija| {
+                        let haeng = sajoopalja_lib::ohaeng::get_haeng(&ohaeng, jijija.haeng_name).unwrap();
                         rsx!(div {
                             class: "ja_box",
                             div {
