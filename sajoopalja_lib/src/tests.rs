@@ -24,8 +24,7 @@ fn ohaeng_kuk() {
 
 #[test]
 fn jiji_order() {
-    let ohaeng = ohaeng::create_ohaeng();
-    let jiji = jiji::create_jiji(&ohaeng);
+    let jiji = jiji::create_jiji();
     assert_eq!(jiji::get_next_jijija_name(&jiji, jiji::Name::Yin), Some(jiji::Name::Myo));
     assert_eq!(jiji::get_next_jijija_name(&jiji, jiji::Name::Myo), Some(jiji::Name::Jin));
     assert_eq!(jiji::get_next_jijija_name(&jiji, jiji::Name::Jin), Some(jiji::Name::Sa));
@@ -42,8 +41,7 @@ fn jiji_order() {
 
 #[test]
 fn jiji_umyang() {
-    let ohaeng = ohaeng::create_ohaeng();
-    let jiji = jiji::create_jiji(&ohaeng);
+    let jiji = jiji::create_jiji();
     assert_eq!(jiji::get_jijija(&jiji, jiji::Name::Yin).unwrap().umyang_name, umyang::Name::Yang);
     assert_eq!(jiji::get_jijija(&jiji, jiji::Name::Myo).unwrap().umyang_name, umyang::Name::Um);
     assert_eq!(jiji::get_jijija(&jiji, jiji::Name::Jin).unwrap().umyang_name, umyang::Name::Yang);
@@ -60,8 +58,7 @@ fn jiji_umyang() {
 
 #[test]
 fn jiji_haeng_name() {
-    let ohaeng = ohaeng::create_ohaeng();
-    let jiji = jiji::create_jiji(&ohaeng);
+    let jiji = jiji::create_jiji();
     assert_eq!(jiji::get_jijija(&jiji, jiji::Name::Yin).unwrap().haeng_name, ohaeng::Name::Mok);
     assert_eq!(jiji::get_jijija(&jiji, jiji::Name::Myo).unwrap().haeng_name, ohaeng::Name::Mok);
     assert_eq!(jiji::get_jijija(&jiji, jiji::Name::Jin).unwrap().haeng_name, ohaeng::Name::To);
@@ -78,8 +75,7 @@ fn jiji_haeng_name() {
 
 #[test]
 fn jiji_wol() {
-    let ohaeng = ohaeng::create_ohaeng();
-    let jiji = jiji::create_jiji(&ohaeng);
+    let jiji = jiji::create_jiji();
     assert_eq!(jiji::get_jijija(&jiji, jiji::Name::Yin).unwrap().wol, 1);
     assert_eq!(jiji::get_jijija(&jiji, jiji::Name::Myo).unwrap().wol, 2);
     assert_eq!(jiji::get_jijija(&jiji, jiji::Name::Jin).unwrap().wol, 3);

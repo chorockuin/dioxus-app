@@ -1,7 +1,7 @@
 #![allow(non_snake_case)]
 // import the prelude to get access to the `rsx!` macro and the `Scope` and `Element` types
 use dioxus::prelude::*;
-use sajoopalja_lib::{ohaeng, jiji};
+use sajoopalja_lib::{umyang, ohaeng, cheongan, jiji};
 
 fn main() {
     // launch the dioxus app in a webview
@@ -11,7 +11,8 @@ fn main() {
 // define a component that renders a div with the text "Hello, world!"
 fn App(cx: Scope) -> Element {
     let ohaeng = sajoopalja_lib::ohaeng::create_ohaeng();
-    let jiji = sajoopalja_lib::jiji::create_jiji(&ohaeng);
+    let cheongan = sajoopalja_lib::cheongan::create_cheongan();
+    let jiji = sajoopalja_lib::jiji::create_jiji();
     cx.render(rsx! {
         div {
             style {
@@ -36,16 +37,32 @@ fn App(cx: Scope) -> Element {
                     clear: "left"
                 }
                 div {
+                    cheongan.iter().map(|cheonganja| {
+                        let haeng = sajoopalja_lib::ohaeng::get_haeng(&ohaeng, cheonganja.haeng_name).unwrap();
+                        rsx!(div {
+                            class: "cheonganja_box",
+                            div {
+                                class: "cheonganja",
+                                background_color: "{haeng.color}",
+                                "{cheonganja.character}"
+                            }
+                        })
+                    })
+                }
+                div {
+                    clear: "left"
+                }
+                div {
                     jiji.iter().map(|jijija| {
                         let haeng = sajoopalja_lib::ohaeng::get_haeng(&ohaeng, jijija.haeng_name).unwrap();
                         rsx!(div {
-                            class: "ja_box",
+                            class: "jijija_box",
                             div {
-                                class: "wol",
+                                class: "jijiwol",
                                 "{jijija.wol}",
                             }
                             div {
-                                class: "ja",
+                                class: "jijija",
                                 background_color: "{haeng.color}",
                                 "{jijija.character}"
                             }

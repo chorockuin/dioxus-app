@@ -26,7 +26,7 @@ pub struct Jijija {
     pub wol: u8,
 }
 
-pub fn create_jiji(ohaeng: &Vec<ohaeng::Haeng>) -> Vec<Jijija> {
+pub fn create_jiji() -> Vec<Jijija> {
     let mut jiji = Vec::new();
     jiji.push(Jijija{
         name: Name::Yin,
