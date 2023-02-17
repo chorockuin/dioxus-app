@@ -2,8 +2,6 @@
     float: left;
     width: 64px;
     height: 64px;
-    margin-right: 2px;
-    margin-bottom: 2px;
 }
 
 .haeng {
@@ -19,15 +17,13 @@
     float: left;
     width: 64px;
     height: 64px;
-    margin-right: 2px;
-    margin-bottom: 2px;
 }
 
 .cheonganja {
     width: 64px;
     height: 64px;
     font-size: 32px;
-    text-align : center;
+    text-align: center;
     line-height: 64px;
     text-shadow: -1px 0px white, 0px 1px white, 1px 0px white, 0px -1px white;
 }
@@ -36,15 +32,13 @@
     float: left;
     width: 64px;
     height: 80px;
-    margin-right: 2px;
-    margin-bottom: 2px;
 }
 
 .jijiwol {
     width: 64px;
     height: 16px;
     font-size: 16px;
-    text-align : center;
+    text-align: center;
     line-height: 16px;
     text-shadow: -1px 0px white, 0px 1px white, 1px 0px white, 0px -1px white;
 }
@@ -53,7 +47,7 @@
     width: 64px;
     height: 64px;
     font-size: 32px;
-    text-align : center;
+    text-align: center;
     line-height: 64px;
     text-shadow: -1px 0px white, 0px 1px white, 1px 0px white, 0px -1px white;
 }

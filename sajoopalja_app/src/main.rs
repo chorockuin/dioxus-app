@@ -39,13 +39,13 @@ fn App(cx: Scope) -> Element {
                 div {
                     cheongan.iter().map(|cheonganja| {
                         let haeng = sajoopalja_lib::ohaeng::get_haeng(&ohaeng, cheonganja.haeng_name).unwrap();
-                        let opacity = sajoopalja_lib::umyang::get_opacity(cheonganja.umyang_name);
+                        let color = if cheonganja.umyang_name == sajoopalja_lib::umyang::Name::Um {"blue"} else {"red"};
                         rsx!(div {
                             class: "cheonganja_box",
                             div {
                                 class: "cheonganja",
                                 background_color: "{haeng.color}",
-                                opacity: "{opacity}",
+                                color: "{color}",
                                 "{cheonganja.character}"
                             }
                         })
@@ -57,7 +57,7 @@ fn App(cx: Scope) -> Element {
                 div {
                     jiji.iter().map(|jijija| {
                         let haeng = sajoopalja_lib::ohaeng::get_haeng(&ohaeng, jijija.haeng_name).unwrap();
-                        let opacity = sajoopalja_lib::umyang::get_opacity(jijija.umyang_name);
+                        let color = if jijija.umyang_name == sajoopalja_lib::umyang::Name::Um {"blue"} else {"red"};
                         rsx!(div {
                             class: "jijija_box",
                             div {
@@ -67,7 +67,7 @@ fn App(cx: Scope) -> Element {
                             div {
                                 class: "jijija",
                                 background_color: "{haeng.color}",
-                                opacity: "{opacity}",
+                                color: "{color}",
                                 "{jijija.character}"
                             }
                         })
